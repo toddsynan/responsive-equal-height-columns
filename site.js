@@ -3,8 +3,9 @@
  * Makes use of jQuery Throttle http://benalman.com/projects/jquery-throttle-debounce-plugin/
  * Usage: $([selector]).equalCols([breakwidth(optional)]);
  * Place inside $(window).load() event for Chrome
- * Don't apply CSS transition to height of equalheight element
-=============================================================== */$.fn.equalCols = function(breakwidth){
+ * Don't apply CSS transition to height of equalheight element (Chrome doesn't like it)
+=============================================================== */
+$.fn.equalCols = function(breakwidth){
     var $cols = this,
         $colHeights = new Array([]),
         maxHeight,
@@ -42,8 +43,7 @@
         }
     }
     
-    /* User jquery-throttle.js for debounce
-     * http://benalman.com/code/projects/jquery-throttle-debounce/docs/files/jquery-ba-throttle-debounce-js.html
+    /* Uses jquery-throttle.js for debounce
     ------------------------------------------------------------------*/
     $(window).resize($.throttle(250, resizeAction));
     
